@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  --background: #fff8f0;
+  --foreground: #2d3748;
+  --card: #ffffff;
+  --card-foreground: #2d3748;
+  --popover: #ffffff;
+  --popover-foreground: #2d3748;
+  --primary: #ffa726;
+  --primary-foreground: #ffffff;
+  --secondary: #81c784;
+  --secondary-foreground: #1b5e20;
+  --muted: #f5f5f5;
+  --muted-foreground: #757575;
+  --accent: #ffe0b2;
+  --accent-foreground: #e65100;
+  --destructive: #ef5350;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.12);
+  --input: transparent;
+  --input-background: #fafafa;
+  --switch-background: #bdbdbd;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #ffa726;
+  --chart-1: #ffa726;
+  --chart-2: #81c784;
+  --chart-3: #4fc3f7;
+  --chart-4: #ef5350;
+  --chart-5: #ab47bc;
+  --radius: 0.5rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #2d3748;
+  --sidebar-primary: #ffa726;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #ffe0b2;
+  --sidebar-accent-foreground: #e65100;
+  --sidebar-border: rgba(0, 0, 0, 0.08);
+  --sidebar-ring: #ffa726;
+  --success: #81c784;
+  --success-foreground: #ffffff;
+  --warning: #ffb74d;
+  --warning-foreground: #ffffff;
+  --info: #4fc3f7;
+  --info-foreground: #ffffff;
+  --error: #ef5350;
+  --error-foreground: #ffffff;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #f5f5f5;
+  --card: #2d2d2d;
+  --card-foreground: #f5f5f5;
+  --popover: #2d2d2d;
+  --popover-foreground: #f5f5f5;
+  --primary: #ffb74d;
+  --primary-foreground: #1a1a1a;
+  --secondary: #a5d6a7;
+  --secondary-foreground: #1a1a1a;
+  --muted: #404040;
+  --muted-foreground: #bdbdbd;
+  --accent: #404040;
+  --accent-foreground: #f5f5f5;
+  --destructive: #f48fb1;
+  --destructive-foreground: #1a1a1a;
+  --border: #404040;
+  --input: #404040;
+  --ring: #ffb74d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont,
+      system-ui, sans-serif;
+    font-size: 14px;
+  }
+}
+
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-foreground);
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-foreground);
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--color-foreground);
+    }
+
+    h4 {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--color-foreground);
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--color-foreground);
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--color-foreground);
+    }
+
+    button {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: 14px;
+}
+
+/* Material Design inspired shadows */
+.elevation-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.elevation-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.elevation-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Custom gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, #ffa726 0%, #ffb74d 100%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(135deg, #81c784 0%, #a5d6a7 100%);
+}
+
+.gradient-info {
+  background: linear-gradient(135deg, #4fc3f7 0%, #81d4fa 100%);
+}
+
+.gradient-error {
+  background: linear-gradient(135deg, #ef5350 0%, #f48fb1 100%);
+}
+
+/* Layout utilities */
+.container-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .container-main {
+    padding: 0 16px;
+  }
+}
